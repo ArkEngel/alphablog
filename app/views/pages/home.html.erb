@@ -1,4 +1,35 @@
-<h1>Welcome to Alpha Blog!</h1>
+<div id="page-content">
+  <div class="container" id="home-container">
+    <div class="jumbotron text-center text-white">
+      <div class="bg-blurr"></div>
+      <h1 class="display-4">Player Ark</h1>
+      <p class="lead">The network for volleyball players!</p>
+      <hr class="my-4">
+      <p>Track you progress, achievements, ratings and connect with fellow players!</p>
+      <%= link_to "Sign Up!", articles_path, :class => "btn btn-primary btn-lg" %>
 
-<p><%= link_to "Articles List", articles_path %></p>
-<p><%= link_to "About", about_path %></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md">
+          <div class="bd-callout bd-callout-info">
+            <h4 id="dealing-with-specificity">Profiles</h4>
+            <p>Share your <code class="language-plaintext highlighter-rouge">ratings</code> and achievements!</p>
+          </div>
+        </div>
+
+        <div class="col-md">
+          <div class="bd-callout bd-callout-warning">
+            <h4 id="dealing-with-specificity">Teams</h4>
+            <p>Connect with people and build teams!</p>
+          </div>
+        </div>
+        <div class="col-md">
+          <div class="bd-callout bd-callout-warning">
+            <h4 id="dealing-with-specificity">Goals</h4>
+            <p>Built in journal to track your progress!</p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

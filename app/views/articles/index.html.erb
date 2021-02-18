@@ -1,21 +1,20 @@
-<h1>List of Articles</h1>
+<h4 class="mt-4">Articles</h4>
 
-<table>
-  <thead></thead>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th colspan="3">Actions</th>
-  </tr>
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.description %></td>
-    <td><%= link_to 'View', article_path(article) %>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are you sure?"} %></td>
-  </tr>
-<% end %>
-</table>
+<p class="mt-4"><button type="button" class="btn btn-success"><%= link_to "New Article", new_article_path, class:'text-white' %></button></p>
+<div class="row mt-4">
+  <% @articles.each do |article| %>
+      <div class="col col-4">
+        <div class="card border-secondary mb-3" style="max-width: 18rem;">
+          <div class="card-header text-right"><%= link_to '📝', edit_article_path(article), class:'text-primary' %> | <%= link_to "❌", article_path(article), method: :delete, data: {confirm: "Are you sure?"}, class:'text-danger' %></div>
+          <div class="card-body text-secondary">
+            <h5 class="card-title"><%= link_to article.title, article_path(article), class: 'text-info' %> <small>by {author place holder}</small></h5>
+            <p class="card-text"><%= truncate(article.description, length:50) %></p>
+            <p class="card-text text-right"><small><strong>Created: </strong><%= time_ago_in_words(article.created_at)+" ago" %> <%= if !article.updated_at.blank?; "| <strong>Updated</strong> ".html_safe+time_ago_in_words(article.updated_at)+" ago" end %></small>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
 
-<strong><p>[<%= link_to "New Article", new_article_path() %>]</p></strong>
+<p class="mt-4"><button type="button" class="btn btn-success"><%= link_to "New Article", new_article_path(), class:'text-white' %></button></p>
